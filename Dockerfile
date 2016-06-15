@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 MAINTAINER "Jackson Web Team" <webadmin@jacksonfurnind.com>
 
@@ -11,12 +11,13 @@ ENV RESTORE_DB_COLLATION utf8_bin
 ENV S3_PATH mysql
 
 RUN apt-get update \
-    && apt-get install -yq --no-install-recommends python-pip mysql-client \
+    && apt-get install -y python-pip mysql-client \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /tmp/* \
     && pip install awscli
 
 ADD start.sh /start.sh
+RUN chmod +x /start.sh
 
 ENTRYPOINT ["/start.sh"]
