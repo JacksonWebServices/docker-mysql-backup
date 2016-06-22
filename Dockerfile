@@ -20,4 +20,6 @@ RUN apt-get update \
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
+WORKDIR /
+
 ENTRYPOINT ["/start.sh"]
