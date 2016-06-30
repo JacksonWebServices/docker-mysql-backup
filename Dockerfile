@@ -18,7 +18,6 @@ RUN apt-get update \
     && pip install awscli
 
 ADD start.sh /start.sh
-RUN chown root /start.sh
 RUN chmod 755 /start.sh
 RUN chmod +x /start.sh
 
